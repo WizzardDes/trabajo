@@ -7,6 +7,12 @@ Rails.application.routes.draw do
 
   get 'trabajos/:id', to: 'trabajos#show'
 
+  delete 'trabajos/index', to: 'trabajos#destroy'
+
+  get 'trabajos/:id/edit', to: 'trabajos#edit'
+
+  put 'trabajos/:id', to: 'trabajos#update'
+
   get 'bienvenido/index'
 
   root 'bienvenido#index'

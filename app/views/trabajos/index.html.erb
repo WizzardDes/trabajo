@@ -1,8 +1,16 @@
 <h1>Mis trabajos</h1>
 
-<ul>
+<table class="table table-hover">
+	<thead class="thead-darck">
+		<th>Tarea</th>
+		<th>Editar</th>
+		<th>Eliminar</th>	
+	</thead>
 	<% @trabajos.each do |trabajo|%>
-
-	<li><%=trabajo.titulo%></li>
+	<tr>
+		<td> <%= link_to trabajo.titulo, {controller: "trabajos", action: "show", id: trabajo.id} %> </td>
+		<td><button class="btn btn-warning">Editar</button></td>
+		<td><%= link_to "Eliminar", { controller: "trabajos", action: "destroy", id: trabajo.id}, method: "delete", data: {confirm: "¿esta seguro?"}, class: "btn btn-danger" %></td>
+	</tr>
 	<% end %>
-</ul>
+</table>
